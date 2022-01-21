@@ -89,8 +89,8 @@ class Linear(DQN):
 
         ##############################################################
         ################### YOUR CODE HERE - 1-2 lines ###############
-        torch.save(self.q_network.state_dict(), 'q_network.pt')
-        self.target_network.load_state_dict(torch.load('q_network.pt'))
+        #torch.save(self.q_network.state_dict(), 'q_network.pt')
+        self.target_network.load_state_dict(self.q_network.state_dict())
         ##############################################################
         ######################## END YOUR CODE #######################
 
