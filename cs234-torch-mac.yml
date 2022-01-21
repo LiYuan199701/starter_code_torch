@@ -1,0 +1,14 @@
+name: cs234-torch
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - torchvision=0.8.2
+  - torchaudio
+  - pytorch=1.7.1
+  - matplotlib=3.3.2
+  - gym=0.19
+  - tensorboard=2.4.0
+prefix: /Users/haojun/anaconda3/envs/cs234-torch
