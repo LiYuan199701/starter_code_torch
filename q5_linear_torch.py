@@ -129,8 +129,9 @@ class Linear(DQN):
 
         ##############################################################
         ##################### YOUR CODE HERE - 3-5 lines #############
-        target = torch.sum(q_values * torch.nn.functional.one_hot(actions.to(torch.int64), num_classes= num_actions), dim=1)
-        input = torch.Tensor([rewards[i] if done_mask[i] else rewards[i] + gamma * torch.max(target_q_values[i, ]) for i in range(len(done_mask))])
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        target = torch.sum(q_values * torch.nn.functional.one_hot(actions.to(torch.int64), num_classes= num_actions), dim=1).to(device)
+        input = torch.Tensor([rewards[i] if done_mask[i] else rewards[i] + gamma * torch.max(target_q_values[i, ]) for i in range(len(done_mask))]).to(device)
         return torch.nn.functional.mse_loss(input, target)
         ##############################################################
         ######################## END YOUR CODE #######################
