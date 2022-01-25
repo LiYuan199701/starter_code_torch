@@ -46,7 +46,7 @@ if __name__ == '__main__':
         print(f'File {load_path} exists, skipping download')
     else:
         print(f'Downloading weights...')
-        subprocess.call(["wget", "-P", "weights/", "http://web.stanford.edu/~haojun/model.weights_step=2000000"])
+        subprocess.call(["wget", "-P", "weights/", "https://web.stanford.edu/class/cs234/assignments/assignment2_weights/model_2700000.weights"])
         print(f'Finished downloading weights')
 
     # train model
